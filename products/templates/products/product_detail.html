@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }} Details</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>Type: {{ product.get_type_display }}</p>
+    <p>Model Identifier: {{ product.model_identifier }}</p>
+    <p>Unique Product Identifier: {{ product.unique_product_identifier }}</p>
+    <p>Global Trade Identification Number: {{ product.global_trade_identification_number }}</p>
+    <p>Compliance Documentation: {{ product.compliance_documentation }}</p>
+    <p>User Manuals: {{ product.user_manuals }}</p>
+
+    <h2>Environmental Data</h2>
+    {% if product.environmental_data %}
+        <p>Carbon Footprint: {{ product.environmental_data.carbon_footprint }} kg CO2e</p>
+        <p>Energy Consumption: {{ product.environmental_data.energy_consumption }} kWh</p>
+        <p>Water Usage: {{ product.environmental_data.water_usage }} liters</p>
+        <p>Recyclability Score: {{ product.environmental_data.recyclability_score }} / 100</p>
+        <p>Lifespan: {{ product.environmental_data.lifespan }} years</p>
+        <p>Hazardous Materials: {{ product.environmental_data.hazardous_materials }}</p>
+    {% else %}
+        <p>No environmental data available for this product.</p>
+    {% endif %}
+</body>
+</html>
